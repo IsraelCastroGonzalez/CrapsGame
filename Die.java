@@ -6,12 +6,16 @@ public class Die{
 	private int firstDice, secondDice = 1;
 	private String nickName;
 
+	//Pre:None
+	//Post:Add a random integer to the dices
 	public Die(){
 		Random rand = new Random();
 		this.firstDice = rand.nextInt(max-min+1)+min;
-		this.secondDice = rand.nextInt(max-min+1)+min;		
+		this.secondDice = rand.nextInt(max-min+1)+min;
 	}
-	
+
+	//Pre: having a random number as a feed
+	//Post: fetch the name of the common dice calls
 	public String DieCall(){
 		this.nickName ="";
 		switch(this.firstDice){
@@ -84,7 +88,7 @@ public class Die{
 							break;
 					case 4: nickName = "JESSE JAMES";
 							break;
-					case 5: nickName = "PUPPY PAWS"; 
+					case 5: nickName = "PUPPY PAWS";
 							break;
 					case 6: nickName = "YO";
 							break;
@@ -109,10 +113,14 @@ public class Die{
 		return nickName;
 	}
 
+	//pre:None
+	//Post:give the value of the first dice thrown
 	public int getFirstDice() {
 		return this.firstDice;
 	}
 
+	//Pre:to throw again the dice in order to generate a random number
+	//Post:New random number for the first dice
 	public void setFirstDice(int firstDice) {
 		if(firstDice>6 || firstDice<1){
 			this.firstDice = 1;
@@ -121,10 +129,14 @@ public class Die{
 		}
 	}
 
+	//Pre:None
+	//Post:give the value of the second dice thrown
 	public int getSecondDice() {
 		return this.secondDice;
 	}
 
+	//Pre:to throw again the dice in order to generate a random number
+	//Post:New random number for the second dice
 	public void setSecondDice(int secondDice) {
 		if(secondDice>6 || secondDice<1){
 			this.secondDice = 1;
@@ -132,9 +144,11 @@ public class Die{
 			this.secondDice = secondDice;
 		}
 	}
-	
+
+	//Pre:None
+	//Post:Return nickName
 	public String getNickName() {
 		return this.nickName;
 	}
-	
+
 }
