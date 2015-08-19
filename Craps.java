@@ -4,10 +4,13 @@ import java.util.Scanner;
 /*
  * Professor: Dr. Bill Cupp.
  * Authors: Israel Castro Gonzalez
- * 			Edgar Alfredo Briceño Gonzalez
- * 
+ * 			Edgar Alfredo Briceï¿½o Gonzalez
+ *
  * 			Laboratory Practice: 1.
  */
+
+ //Pre: Die.java class
+ //Post: Dice1,dice2,firstThrow and scanner
 public class Craps {
 	public Die die;
 	private int dice1, dice2;
@@ -15,13 +18,17 @@ public class Craps {
 	private int firstThrow;
 	private int throwNum = 0;
 	private Scanner scanIn;
-	
+
 	private gameStatus game;
-	
+
+	//Pre:None
+	//Post:Enum data types WON, LOST and CONTINUE
 	public enum gameStatus{
 		WON, LOST,CONTINUE
 	}
-	
+
+	//Pre: Class constructor
+	//Post: ScanIn opened
 	public Craps(){
 		System.out.println("Feeling lucky punk?.. here, throw em'... ");
 		System.out.println("...");
@@ -40,18 +47,19 @@ public class Craps {
 			playCraps();
 		}
 	}
-
+	//Pre: Method Craps
+	//Post: Recursive data flow
 	public void playCraps(){
 		die = new Die();
 		this.dice1=this.die.getFirstDice();
 		this.dice2=this.die.getSecondDice();
 		this.sumOfDice = this.dice1 + this.dice2;
 		System.out.println(this.die.DieCall());
-		
+
 		checkResult();
 		throwNum=1;
-		
-		switch(this.game){ 
+
+		switch(this.game){
 			case WON: System.out.println("THE ODDS ARE IN YO' FAVOR MAN!.. CONGRATS, YOU WIN!");
 					  this.scanIn.close();
 					  break;
@@ -77,12 +85,13 @@ public class Craps {
 		}
 
 	}
-
+	//Pre: PlayCraps Method
+	//Post: GameStatus WON, LOST or CONTINUE
 	public void checkResult(){
 		if(throwNum == 0){
 			this.firstThrow = this.sumOfDice;
 		}
-		
+
 		if((this.sumOfDice == 7 || this.sumOfDice==11) && throwNum==0){
 			this.game = gameStatus.WON;
 		}
@@ -100,6 +109,8 @@ public class Craps {
 		}
 	}
 
+	//Pre: None
+	//Post: None
 	public static void main(String[] args) {
 		Craps craps = new Craps();
 	}
