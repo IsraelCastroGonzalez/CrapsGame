@@ -1,4 +1,4 @@
-import java.io.Console;
+﻿import java.io.Console;
 import java.util.Scanner;
 
 /*
@@ -54,7 +54,7 @@ public class Craps {
 		this.dice1=this.die.getFirstDice();
 		this.dice2=this.die.getSecondDice();
 		this.sumOfDice = this.dice1 + this.dice2;
-		System.out.println(this.die.DieCall());
+		System.out.println("("+this.dice1+","+this.dice2+") - "+this.die.DieCall());
 
 		checkResult();
 		throwNum=1;
